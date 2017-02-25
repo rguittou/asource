@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Run ps  and output "ps /"
+      command: ps -aux
+      register: out
+
+    - debug: var=out.stdout_lines

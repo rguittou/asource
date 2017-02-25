@@ -1,0 +1,15 @@
+---
+- name: Test play
+  hosts: all
+  remote_user: root
+  gather_facts: no
+  tasks:
+
+    - name: List of proc running for a particular user
+      shell: ps aux 
+      register: iperf_running
+
+    - debug: var=iperf_running.stdout_lines
+    
+    - name: print to stdout
+      action: command echo "hello"
